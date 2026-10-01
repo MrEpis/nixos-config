@@ -8,10 +8,8 @@
   home.username = "mrepis";
   home.homeDirectory = "/home/mrepis";
 
-  # Noctalia Shell via son module officiel
   programs.noctalia = {
     enable = true;
-    # settings = { ... }; # Laisser vide si tu préfères configurer via l'UI intégrée
   };
 
   home.packages = with pkgs; [
@@ -34,11 +32,18 @@
     python3Minimal
     jre_minimal
     gcc
-    kdePackages.dolphin
     antigravity-cli
     elmPackages.nodejs
     gh
+    libnotify
+    btop
+    wdisplays
   ];
+
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
 
   programs.zsh = {
     enable = true;
@@ -183,6 +188,11 @@
         scale 1.0
     }
 
+    output "HDMI-A-1" {
+         scale 1.0
+	 position x=1920 y=0
+    }
+
 
     prefer-no-csd
 
@@ -196,6 +206,10 @@
             tap
             natural-scroll
         }
+	mouse {
+	  accel-profile "flat"
+	  accel-speed -0.1
+	}
     }
 
     layout {
@@ -238,6 +252,7 @@
 	Mod+Shift+Up { move-window-to-workspace-up; }
 	Mod+Shift+Down { move-window-to-workspace-down; }
 
+	Mod+Shift+S { screenshot; }
 
 	XF86AudioRaiseVolume  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+"; }
         XF86AudioLowerVolume  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }

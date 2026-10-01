@@ -31,7 +31,6 @@
 
   console.keyMap = "fr";
 
-  # Réseau & Audio
   networking.networkmanager.enable = true;
   networking.hostName = "larptop";
 
@@ -70,10 +69,8 @@
 
   programs.zsh.enable = true;
 
-  # Activation native de Niri
   programs.niri.enable = true;
 
-  # Polices et backend graphique
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
     noto-fonts
@@ -95,9 +92,18 @@
     htop
     brightnessctl
     xwayland-satellite
+    wlr-randr
+    unzip
+    hunspell
+    hunspellDicts.fr-moderne
+    aspell
+    aspellDicts.fr
   ];
 
-  # Utilisateur principal
+  environment.variables = {
+    DICPATH = "${pkgs.hunspellDicts.fr-moderne}/share/hunspell";
+  };
+
   users.users.mrepis = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "video" "input" ];
