@@ -38,7 +38,17 @@
     libnotify
     btop
     wdisplays
+    nautilus
+    sushi
+    ffmpegthumbnailer
   ];
+
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "inode/directory" = [ "org.gnome.Nautilus.desktop" ];
+    };
+  };
 
   programs.direnv = {
     enable = true;
@@ -234,7 +244,6 @@
     }
 
     binds {
-        Mod+Return { spawn "alacritty"; }
         Mod+Q { close-window; }
         Mod+Left  { focus-column-left; }
         Mod+Right { focus-column-right; }
@@ -246,6 +255,8 @@
 
         Mod+Space { spawn "fuzzel"; }
         Mod+B { spawn "firefox"; }
+        Mod+Return { spawn "alacritty"; }
+	Mod+E { spawn "nautilus"; }
 
 	Mod+Shift+Left { move-column-left; }
 	Mod+Shift+Right { move-column-right; }
@@ -253,6 +264,7 @@
 	Mod+Shift+Down { move-window-to-workspace-down; }
 
 	Mod+Shift+S { screenshot; }
+	Mod+R { open-overview; }
 
 	XF86AudioRaiseVolume  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+"; }
         XF86AudioLowerVolume  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }
