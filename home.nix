@@ -41,6 +41,7 @@
     nautilus
     sushi
     ffmpegthumbnailer
+    spotify
   ];
 
   xdg.mimeApps = {
