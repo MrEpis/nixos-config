@@ -1,5 +1,5 @@
 {
-  description = "NixOS + Niri + Noctalia Shell";
+  description = "NixOS + Niri + Noctalia Shell Multi-Host";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -15,23 +15,23 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, noctalia, ... }@inputs: {
-    nixosConfigurations.larptop = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = { inherit inputs; };
-      modules = [
-        ./hardware-configuration.nix
-        ./configuration.nix
-
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = { inherit inputs; };
-          home-manager.users.mrepis = import ./home.nix;
-	  home-manager.backupFileExtension = "backup";
-        }
-      ];
+  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
+    nixosConfigurations = {
+      larptop = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./hosts/larptop
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = { inherit inputs; };
+            home-manager.users.mrepis = import ./modules/home-manager;
+            home-manager.backupFileExtension = "backup";
+          }
+        ];
+      };
     };
   };
 }
