@@ -50,8 +50,16 @@
       logo = {
         source = "NixOS2";
         padding.right = 2;
+	color = {
+	  "1" = "38;2;180;142;173";
+	  "2" = "38;2;203;166;247";
+	};
       };
       display.separator = " -> ";
+      display.color = {
+        keys = "38;2;203;166;247";
+	separator = "38;2;180;142;173";
+      };
       modules = [
         { type = "os"; key = "OS"; }
         { type = "kernel"; key = "Kernel"; }
