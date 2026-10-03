@@ -5,6 +5,7 @@
     inputs.noctalia.homeModules.default
     ./shell.nix
     ./terminal.nix
+    ./neovim.nix
     ./wm/niri.nix
   ];
 
@@ -17,7 +18,6 @@
     wl-clipboard
     wireplumber
     firefox
-    neovim
     fuzzel
     bat
     lsd
@@ -40,6 +40,7 @@
     sushi
     ffmpegthumbnailer
     playerctl
+
   ];
 
   programs.fuzzel = {
