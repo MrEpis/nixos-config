@@ -33,8 +33,18 @@
     }
 
     layout {
-        gaps 6
+        gaps 15 
         center-focused-column "never"
+
+	focus-ring {
+	    width 4
+	    active-color "#b89cff"
+	}
+    }
+
+    window-rule {
+        geometry-corner-radius 12
+	clip-to-geometry true
     }
 
     window-rule {

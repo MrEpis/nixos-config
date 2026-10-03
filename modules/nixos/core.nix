@@ -56,7 +56,7 @@
     options = "--delete-older-than 7d";
   };
 
-  nix.settings.auto-optimize-store = true;
+  nix.settings.auto-optimise-store = true;
 
   system.stateVersion = "26.05";
 }
