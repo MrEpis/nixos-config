@@ -73,6 +73,9 @@
 	Mod+Shift+Up { move-window-to-workspace-up; }
 	Mod+Shift+Down { move-window-to-workspace-down; }
 
+	Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
+	Mod+Shift+Ctrl+Left { move-column-to-monitor-left; }
+
 	Mod+Shift+S { screenshot; }
 	Mod+R { open-overview; }
 

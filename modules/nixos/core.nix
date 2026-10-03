@@ -50,5 +50,13 @@
     DICPATH = "${pkgs.hunspellDicts.fr-moderne}/share/hunspell";
   };
 
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 7d";
+  };
+
+  nix.settings.auto-optimize-store = true;
+
   system.stateVersion = "26.05";
 }
