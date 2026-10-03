@@ -38,8 +38,8 @@
     git
     curl
     wget
-    htop
     unzip
+    tree
     hunspell
     hunspellDicts.fr-moderne
     aspell
