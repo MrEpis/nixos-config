@@ -28,7 +28,8 @@
     jetbrains.idea
     jetbrains.webstorm
     python3Minimal
-    jre_minimal
+    jetbrains.jdk
+    maven
     gcc
     antigravity-cli
     elmPackages.nodejs

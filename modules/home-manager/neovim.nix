@@ -13,7 +13,7 @@
       nvim-web-devicons 
     ];
 
-    extraLuaConfig = ''
+    initLua = ''
       vim.opt.number = true
       vim.opt.relativenumber = true
 

@@ -54,7 +54,6 @@
 
     window-rule {
 	match app-id="Alacritty"
-	default-column-width { proportion 0.6; }
 	draw-border-with-background false
     }
 
